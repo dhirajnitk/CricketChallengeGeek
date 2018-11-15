@@ -28,41 +28,46 @@
     <session id="637172236">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.68" value="1" />
           <entry key="project.open.time.70" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.open.time.73" value="1" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="65" />
+          <entry key="class" value="2" />
+          <entry key="java" value="85" />
           <entry key="properties" value="4" />
           <entry key="txt" value="16" />
-          <entry key="xml" value="1" />
+          <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="65" />
+          <entry key="CLASS" value="2" />
+          <entry key="JAVA" value="85" />
           <entry key="PLAIN_TEXT" value="16" />
           <entry key="Properties" value="4" />
-          <entry key="XML" value="1" />
+          <entry key="XML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="6245" />
-          <entry key="xml" value="1" />
+          <entry key="java" value="7379" />
+          <entry key="xml" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6245" />
-          <entry key="XML" value="1" />
+          <entry key="JAVA" value="7379" />
+          <entry key="XML" value="17" />
         </counts>
       </usages-collector>
     </session>
@@ -72,8 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/client/PlayTournament.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="29" column="50" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
+            <state relative-caret-position="195">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,10 +89,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/CricketTournament.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="-9">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#306#307#0" expanded="true" />
+                <element signature="e#339#340#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -96,8 +103,70 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/util/Team.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="525">
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#919#920#0" expanded="true" />
+                <element signature="e#960#961#0" expanded="true" />
+                <element signature="e#1004#1005#0" expanded="true" />
+                <element signature="e#1049#1050#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/Toss.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="50" column="108" selection-start-line="50" selection-start-column="108" selection-end-line="50" selection-end-column="108" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1607#1608#0" expanded="true" />
+                <element signature="e#1633#1634#0" expanded="true" />
+                <element signature="e#2790#2791#0" expanded="true" />
+                <element signature="e#2840#2841#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/util/TossType.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/Inning.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2949">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/Result.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="555">
+              <caret line="49" selection-start-line="49" selection-end-line="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/ScoreCard.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-699">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -106,37 +175,26 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/Inning.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="150" column="29" selection-start-line="150" selection-start-column="29" selection-end-line="150" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/Commentary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="291">
+              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#454#455#0" expanded="true" />
+                <element signature="e#500#501#0" expanded="true" />
+                <element signature="e#1260#1261#0" expanded="true" />
+                <element signature="e#1300#1301#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/ScoreCard.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/CricketProperties.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="68" column="33" lean-forward="true" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="60">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -157,12 +215,12 @@
       <find>cleanUpCommentary</find>
       <find>I am called</find>
       <find>Commentary</find>
+      <find>innig</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/CricketTournament.java" />
         <option value="$PROJECT_DIR$/src/main/java/Team.java" />
         <option value="$PROJECT_DIR$/src/main/java/Innings.java" />
@@ -177,19 +235,21 @@
         <option value="$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/Commentary.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/ScoreCard.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/CricketTournament.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/Result.java" />
         <option value="$PROJECT_DIR$/src/test/java/PlayTournamentTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/util/Teams.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/util/TossType.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/util/WeatherType.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/util/DayNightType.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/CricketTournament.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/Toss.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/dhiraj/GeekTrust/PlayTournamentTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/Inning.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/client/PlayTournament.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/CricketTournament.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/util/Team.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/Toss.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/Result.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/ScoreCard.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/Commentary.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/client/PlayTournament.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/Inning.java" />
       </list>
     </option>
   </component>
@@ -206,7 +266,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="260" />
     <option name="y" value="48" />
     <option name="width" value="1390" />
@@ -217,17 +277,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="CricketChallengeModified" type="b2602c69:ProjectViewProjectNode" />
               <item name="CricketChallengeModified" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CricketChallengeModified" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CricketChallengeModified" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CricketChallengeModified" type="b2602c69:ProjectViewProjectNode" />
@@ -282,39 +338,18 @@
               <item name="GeekTrust" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="CricketChallengeModified" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CricketChallengeModified" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CricketChallengeModified" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CricketChallengeModified" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CricketChallengeModified" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CricketChallengeModified" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542205892255" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542265613427" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/java" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -356,6 +391,20 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlayTournamentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CricketChallengeModified" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dhiraj.GeekTrust.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.dhiraj.GeekTrust" />
+      <option name="MAIN_CLASS_NAME" value="com.dhiraj.GeekTrust.PlayTournamentTest" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -413,12 +462,14 @@
       <item itemvalue="JUnit.PlayTournamentTest.testToss" />
       <item itemvalue="JUnit.PlayTournamentTest.testSuperOverMatch" />
       <item itemvalue="JUnit.PlayTournamentTest.testChaseMatch" />
+      <item itemvalue="JUnit.PlayTournamentTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.PlayTournamentTest.testSuperOverMatch" />
         <item itemvalue="JUnit.PlayTournamentTest.testChaseMatch" />
         <item itemvalue="JUnit.PlayTournamentTest.testToss" />
+        <item itemvalue="JUnit.PlayTournamentTest" />
         <item itemvalue="Application.CricketTournament" />
       </list>
     </recent_temporary>
@@ -438,49 +489,53 @@
       <workItem from="1542171122692" duration="10841000" />
       <workItem from="1542191934573" duration="4394000" />
       <workItem from="1542203263084" duration="2562000" />
+      <workItem from="1542257877799" duration="2053000" />
+      <workItem from="1542262460234" duration="381000" />
+      <workItem from="1542262846653" duration="180000" />
+      <workItem from="1542263031550" duration="2569000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PlayTournamentTest_testChaseMatch - 2018.11.14 at 19h 46m 12s.xml">
+    <history-entry file="PlayTournamentTest_testToss - 2018.11.15 at 12h 10m 35s.xml">
+      <configuration name="PlayTournamentTest.testToss" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PlayTournamentTest_testToss - 2018.11.15 at 12h 19m 46s.xml">
+      <configuration name="PlayTournamentTest.testToss" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PlayTournamentTest_testToss - 2018.11.15 at 12h 20m 13s.xml">
+      <configuration name="PlayTournamentTest.testToss" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PlayTournamentTest_testToss - 2018.11.15 at 12h 20m 18s.xml">
+      <configuration name="PlayTournamentTest.testToss" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PlayTournamentTest_testToss - 2018.11.15 at 12h 20m 23s.xml">
+      <configuration name="PlayTournamentTest.testToss" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PlayTournamentTest_testToss - 2018.11.15 at 12h 20m 28s.xml">
+      <configuration name="PlayTournamentTest.testToss" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PlayTournamentTest_testSuperOverMatch - 2018.11.15 at 12h 20m 34s.xml">
+      <configuration name="PlayTournamentTest.testSuperOverMatch" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PlayTournamentTest_testSuperOverMatch - 2018.11.15 at 12h 21m 07s.xml">
+      <configuration name="PlayTournamentTest.testSuperOverMatch" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PlayTournamentTest_testChaseMatch - 2018.11.15 at 12h 21m 20s.xml">
       <configuration name="PlayTournamentTest.testChaseMatch" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PlayTournamentTest_testChaseMatch - 2018.11.14 at 19h 48m 31s.xml">
-      <configuration name="PlayTournamentTest.testChaseMatch" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PlayTournamentTest_testChaseMatch - 2018.11.14 at 19h 48m 54s.xml">
-      <configuration name="PlayTournamentTest.testChaseMatch" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PlayTournamentTest_testSuperOverMatch - 2018.11.14 at 19h 49m 09s.xml">
-      <configuration name="PlayTournamentTest.testSuperOverMatch" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PlayTournamentTest_testChaseMatch - 2018.11.14 at 19h 49m 45s.xml">
-      <configuration name="PlayTournamentTest.testChaseMatch" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PlayTournamentTest_testSuperOverMatch - 2018.11.14 at 19h 52m 10s.xml">
-      <configuration name="PlayTournamentTest.testSuperOverMatch" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PlayTournamentTest_testSuperOverMatch - 2018.11.14 at 19h 56m 48s.xml">
-      <configuration name="PlayTournamentTest.testSuperOverMatch" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PlayTournamentTest_testSuperOverMatch - 2018.11.14 at 19h 58m 07s.xml">
-      <configuration name="PlayTournamentTest.testSuperOverMatch" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PlayTournamentTest_testSuperOverMatch - 2018.11.14 at 19h 59m 42s.xml">
-      <configuration name="PlayTournamentTest.testSuperOverMatch" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PlayTournamentTest_testSuperOverMatch - 2018.11.14 at 20h 00m 06s.xml">
+    <history-entry file="PlayTournamentTest_testSuperOverMatch - 2018.11.15 at 12h 25m 41s.xml">
       <configuration name="PlayTournamentTest.testSuperOverMatch" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32309000" />
+    <option name="totallyTimeSpent" value="37492000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="28" width="1920" height="1018" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2628205" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27564102" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -489,13 +544,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32954547" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.24431819" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32954547" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32954547" />
@@ -517,13 +572,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/client.java" />
     <entry file="file://$PROJECT_DIR$/config/Application.properties">
       <provider selected="true" editor-type-id="text-editor">
@@ -532,23 +580,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/CricketProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/scorecard.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/commentary.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/util/Teams.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.8.0-beta2/slf4j-api-1.8.0-beta2.jar!/org/slf4j/Logger.class">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -559,10 +607,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="11" lean-forward="true" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/dhiraj/GeekTrust/PlayTournamentTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1155">
+          <caret line="77" column="46" selection-start-line="77" selection-start-column="46" selection-end-line="77" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/util/DayNightType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/CricketProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/client/PlayTournament.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/CricketTournament.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#306#307#0" expanded="true" />
+            <element signature="e#339#340#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/util/Team.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#919#920#0" expanded="true" />
+            <element signature="e#960#961#0" expanded="true" />
+            <element signature="e#1004#1005#0" expanded="true" />
+            <element signature="e#1049#1050#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/Toss.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="50" column="108" selection-start-line="50" selection-start-column="108" selection-end-line="50" selection-end-column="108" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1607#1608#0" expanded="true" />
+            <element signature="e#1633#1634#0" expanded="true" />
+            <element signature="e#2790#2791#0" expanded="true" />
+            <element signature="e#2840#2841#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -573,32 +695,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/Toss.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/Inning.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
+        <state relative-caret-position="-2949">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1620#1621#0" expanded="true" />
-            <element signature="e#1646#1647#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/Result.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+        <state relative-caret-position="555">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/commentary.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/ScoreCard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="68" column="33" lean-forward="true" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
+        <state relative-caret-position="-699">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -607,60 +724,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/Commentary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="291">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/dhiraj/GeekTrust/PlayTournamentTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/client/PlayTournament.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="29" column="50" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/util/Team.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/CricketTournament.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dhiraj/GeekTrust/service/Inning.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="150" column="29" selection-start-line="150" selection-start-column="29" selection-end-line="150" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#454#455#0" expanded="true" />
+            <element signature="e#500#501#0" expanded="true" />
+            <element signature="e#1260#1261#0" expanded="true" />
+            <element signature="e#1300#1301#0" expanded="true" />
           </folding>
         </state>
       </provider>

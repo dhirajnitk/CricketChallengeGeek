@@ -1,6 +1,6 @@
 package com.dhiraj.GeekTrust.service;
-import com.dhiraj.GeekTrust.util.Team;
 
+import com.dhiraj.GeekTrust.util.Team;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,30 +9,34 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class ScoreCard {
+
     private String scoreFileName;
     private FileWriter scoreFile;
     private PrintWriter scorePrint;
     private Result result;
     private Inning secondInning;
     private CricketProperties cricketProperties;
+
     public ScoreCard(Result result,Inning secondInning) throws IOException {
         this.result = result;
         this.secondInning = secondInning;
-        this.cricketProperties = new CricketProperties();
+        this.cricketProperties = Commentary.getCricketProperties();
         scoreFileName = cricketProperties.getProperty("scoreCardFileName");
         scoreFile = new FileWriter(scoreFileName,false);
         if(scorePrint== null)
             scorePrint = new PrintWriter(scoreFile);
     }
 
-    private void commonWriteScoreCard(Inning innnig){
-        Team team = innnig.getTeam();
+    private void commonWriteScoreCard(Inning inning){
+
+        Team team = inning.getTeam();
         for(int index = 0; index <team.getSize(); index++){
-            if(innnig.getOutPlayerSet().contains(index))
-                scorePrint.println(team.getPlayerName(index)+" - "+ innnig.getStrikeRate(index).getValue()+"("+ innnig.getStrikeRate(index).getKey()+" balls)");
-            else if(innnig.getCurrentPlayers().containsValue(index))
-                scorePrint.println(team.getPlayerName(index)+" - "+innnig.getStrikeRate(index).getValue()+"*("+ innnig.getStrikeRate(index).getKey()+" balls)");
+            if(inning.getOutPlayerSet().contains(index))
+                scorePrint.println(team.getPlayerName(index)+" - "+ inning.getStrikeRate(index).getValue()+"("+ inning.getStrikeRate(index).getKey()+" balls)");
+            else if(inning.getCurrentPlayers().containsValue(index))
+                scorePrint.println(team.getPlayerName(index)+" - "+inning.getStrikeRate(index).getValue()+"*("+ inning.getStrikeRate(index).getKey()+" balls)");
         }
+
     }
 
     private void publishScoreCard() throws IOException {

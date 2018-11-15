@@ -1,9 +1,9 @@
 package com.dhiraj.GeekTrust.service;
+
 import com.dhiraj.GeekTrust.util.DayNightType;
 import com.dhiraj.GeekTrust.util.Teams;
 import com.dhiraj.GeekTrust.util.TossType;
 import com.dhiraj.GeekTrust.util.WeatherType;
-
 import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,11 +35,13 @@ public class Toss {
         return type;
     }
 
-    private static Map<AbstractMap.SimpleEntry<Teams,WeatherType>, TossType> tossWeatherMatix;
-    private static Map<AbstractMap.SimpleEntry<Teams, DayNightType>,TossType> tossDayMatrix;
+    private Map<AbstractMap.SimpleEntry<Teams,WeatherType>, TossType> tossWeatherMatix;
+    private Map<AbstractMap.SimpleEntry<Teams, DayNightType>,TossType> tossDayMatrix;
+
     public Toss(){
         buildMap();
     }
+
     private  void buildMap(){
         tossWeatherMatix = new HashMap<AbstractMap.SimpleEntry<Teams, WeatherType>, TossType>();
         tossDayMatrix = new HashMap<AbstractMap.SimpleEntry<Teams, DayNightType>, TossType>();
@@ -47,18 +49,14 @@ public class Toss {
         tossWeatherMatix.put(new AbstractMap.SimpleEntry<>(Teams.Lengaburu, WeatherType.CLOUDY),TossType.BOWLS);
         tossWeatherMatix.put(new AbstractMap.SimpleEntry<>(Teams.Enchai, WeatherType.CLEAR),TossType.BOWLS);
         tossWeatherMatix.put(new AbstractMap.SimpleEntry<>(Teams.Enchai, WeatherType.CLOUDY),TossType.BATS);
-
         tossDayMatrix.put(new AbstractMap.SimpleEntry<>(Teams.Lengaburu, DayNightType.DAY),TossType.BATS);
         tossDayMatrix.put(new AbstractMap.SimpleEntry<>(Teams.Lengaburu, DayNightType.NIGHT),TossType.BOWLS);
         tossDayMatrix.put(new AbstractMap.SimpleEntry<>(Teams.Enchai, DayNightType.DAY),TossType.BOWLS);
         tossDayMatrix.put(new AbstractMap.SimpleEntry<>(Teams.Enchai, DayNightType.NIGHT),TossType.BATS);
-
     }
 
-    String getTossResult(Teams teams, String ... inputs){
-        String outputFormat = "%s wins toss and %s";
-        int tossResult = evaluateToss(teams, inputs);
-        return String.format(outputFormat, teams.toString(),  TossType.values()[tossResult].name().toLowerCase());
+    int  getTossResult(Teams teams, String ... inputs){
+        return evaluateToss(teams, inputs);
     }
 
 }

@@ -2,18 +2,21 @@ package com.dhiraj.GeekTrust.client;
 
 import com.dhiraj.GeekTrust.service.CricketTournament;
 import com.dhiraj.GeekTrust.util.Team;
-
+import com.dhiraj.GeekTrust.util.Teams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 
 public class PlayTournament {
-    private CricketTournament  cricketTournament = new CricketTournament();
 
-    public boolean getTossResult(){
-        cricketTournament.evaluateToss();
-        return true;
+    private CricketTournament  cricketTournament = new CricketTournament();
+    private static final Logger logger = LoggerFactory.getLogger(PlayTournament.class);
+
+    public String getTossResult(Teams teams, String ... inputs){
+        return cricketTournament.evaluateToss(teams, inputs);
 
     }
-    public  boolean  playSuperOverMatch() throws IOException {
+    public  boolean  playSuperOverMatch(){
         final  String [] lengaburuNames = {"Kirat Boli","N.S Nodhi"};
         final  String [] enchaiNames = {"DB Vellyers","H Mamla"};
         int [][] lengaburuProbMatrix  = {
@@ -27,11 +30,16 @@ public class PlayTournament {
 
         Team team1 = new Team("Lengaburu",lengaburuNames, lengaburuProbMatrix);
         Team team2 = new Team("Enchai",enchaiNames, enchaiProbMatrix);
-        cricketTournament.playMatch(team1, team2,1);
+        try {
+            cricketTournament.playMatch(team1, team2,1);
+        } catch (IOException e) {
+            logger.error(e.getMessage());
+            return false;
+        }
         return true;
 
     }
-    public  boolean chase4OverMatch() throws IOException {
+    public  boolean chase4OverMatch()  {
         final  String [] lengaburuNames = {"Kirat Boli","N.S Nodhi","R Rumrah","Shashi Henra"};
         int [][] lengaburuProbMatrix = {
                 {5, 30, 25, 10, 15, 1, 9, 5},
@@ -41,7 +49,12 @@ public class PlayTournament {
         };
 
         Team team = new Team("Lengaburu",lengaburuNames, lengaburuProbMatrix);
-        cricketTournament.chaseSingleInning(team, 4, 40);
+        try {
+            cricketTournament.chaseSingleInning(team, 4, 40);
+        } catch (IOException e) {
+            logger.error(e.getMessage());
+            return false;
+        }
         return true;
     }
 
