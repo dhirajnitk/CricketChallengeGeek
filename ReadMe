@@ -1,0 +1,5 @@
+1. Maven project contains solution to Set4Problem1, Set4Problem2 and SetProblem3
+2.PlayTournamentTest.java comprises of 3  respective Junit Test cases
+3. Use  IDE(Eclipse/IntelliJ) or maven to build/run the test code
+4. Running command "mvn test" will run all three unit tests and print the output in console.
+
