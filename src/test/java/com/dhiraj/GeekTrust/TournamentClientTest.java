@@ -1,6 +1,6 @@
 package com.dhiraj.GeekTrust;
 
-import com.dhiraj.GeekTrust.client.PlayTournament;
+import com.dhiraj.GeekTrust.client.TournamentClient;
 import com.dhiraj.GeekTrust.util.Teams;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Random;
 
 @FixMethodOrder(MethodSorters.DEFAULT)
-public final class PlayTournamentTest {
+public final class TournamentClientTest {
 
     private final static List<String> weatherType = Arrays.asList("Clear","Cloudy");
     private final static List<String> dayType = Arrays.asList("Day", "Night");
@@ -47,7 +47,7 @@ public final class PlayTournamentTest {
     public void testToss()  {
         int weatherIndex =  new Random().nextInt(weatherType.size());
         int dayIndex =  new Random().nextInt(dayType.size());
-        PlayTournament playTournament = new PlayTournament();
+        TournamentClient playTournament = new TournamentClient();
         System.out.println("Input: "+weatherType.get(weatherIndex) +" "+dayType.get(dayIndex));
         Random r = new Random(System.currentTimeMillis());
         Teams teams;
@@ -65,7 +65,7 @@ public final class PlayTournamentTest {
 
     @Test
     public void testSuperOverMatch()  {
-        PlayTournament playTournament = new PlayTournament();
+        TournamentClient playTournament = new TournamentClient();
         for(int index = 0; index < count; index++)
             assertTrue(playTournament.playSuperOverMatch());
     }
@@ -73,7 +73,7 @@ public final class PlayTournamentTest {
 
     @Test
     public void testChaseMatch() {
-        PlayTournament playTournament = new PlayTournament();
+        TournamentClient playTournament = new TournamentClient();
         for(int index = 0; index < count; index++)
             assertTrue(playTournament.chase4OverMatch());
     }

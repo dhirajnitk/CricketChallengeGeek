@@ -3,17 +3,20 @@ package com.dhiraj.GeekTrust.client;
 import com.dhiraj.GeekTrust.service.CricketTournament;
 import com.dhiraj.GeekTrust.util.Team;
 import com.dhiraj.GeekTrust.util.Teams;
+import com.dhiraj.GeekTrust.util.TossType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.IOException;
 
-public class PlayTournament {
+public class TournamentClient {
 
+    private static final Logger logger = LoggerFactory.getLogger(TournamentClient.class);
     private CricketTournament  cricketTournament = new CricketTournament();
-    private static final Logger logger = LoggerFactory.getLogger(PlayTournament.class);
 
     public String getTossResult(Teams teams, String ... inputs){
-        return cricketTournament.evaluateToss(teams, inputs);
+        int tossResult = cricketTournament.evaluateToss(teams, inputs);
+        String outputFormat = "%s wins toss and %s";
+        return String.format(outputFormat, teams.toString(),  TossType.values()[tossResult].name().toLowerCase());
 
     }
     public  boolean  playSuperOverMatch(){

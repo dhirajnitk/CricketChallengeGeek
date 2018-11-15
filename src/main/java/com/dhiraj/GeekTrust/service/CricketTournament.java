@@ -13,10 +13,9 @@ public class CricketTournament {
         toss = new Toss();
     }
 
-    public String evaluateToss(Teams teams, String ... inputs){
-        int tossResult =  toss.getTossResult(teams, inputs);
-        String outputFormat = "%s wins toss and %s";
-        return String.format(outputFormat, teams.toString(),  TossType.values()[tossResult].name().toLowerCase());
+    public int  evaluateToss(Teams teams, String ... inputs){
+        return toss.getTossResult(teams, inputs);
+
     }
 
     public void playMatch(Team team1, Team team2, int overs) throws IOException {
