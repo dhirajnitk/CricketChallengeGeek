@@ -8,9 +8,7 @@ import javafx.util.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class TournamentClient {
 
@@ -41,16 +39,20 @@ public class TournamentClient {
     public  boolean  playSuperOverMatch(){
         final  String [] lengaburuNames = {"Kirat Boli","N.S Nodhi"};
         final  String [] enchaiNames = {"DB Vellyers","H Mamla"};
-        int [][] lengaburuProbMatrix  = {
+        final int [][] lengaburuProbMatrix  = {
                 {5, 10, 25, 10, 25, 1, 14, 10},
                 {5, 15, 15, 10, 20, 1, 19, 15}
         };
-        int [][] enchaiProbMatrix = {
+        final int [][] enchaiProbMatrix = {
                 {5, 10, 25, 10, 25, 1, 14, 10},
                 {10, 15, 15, 10, 20,1, 19, 10}
         };
+        final Map<Teams, Pair<String[],int[][]>> teamsPairMap  = new HashMap<>();
+        teamsPairMap.put(Teams.Lengaburu, new Pair<>(lengaburuNames, lengaburuProbMatrix));
+        teamsPairMap.put(Teams.Enchai, new Pair<>(enchaiNames, enchaiProbMatrix));
         Pair<Teams,Teams> tossResult = getToss(new Random());
         Teams teams1, teams2;
+
         if(tossResult.getKey() == tossResult.getValue()){
             teams1 = tossResult.getKey();
             int index = Teams.values().length - 1 - Teams.valueOf(teams1.name()).ordinal();
@@ -60,8 +62,8 @@ public class TournamentClient {
             teams1 = tossResult.getValue();
             teams2 = tossResult.getKey();
         }
-        Team team1 = new Team(teams1.name(),lengaburuNames, lengaburuProbMatrix);
-        Team team2 = new Team(teams2.name(),enchaiNames, enchaiProbMatrix);
+        Team team1 = new Team(teams1.name(),teamsPairMap.get(teams1).getKey(), teamsPairMap.get(teams1).getValue());
+        Team team2 = new Team(teams2.name(),teamsPairMap.get(teams2).getKey(), teamsPairMap.get(teams2).getValue());
         try {
             cricketTournament.playMatch(team1, team2,1);
         } catch (IOException e) {
