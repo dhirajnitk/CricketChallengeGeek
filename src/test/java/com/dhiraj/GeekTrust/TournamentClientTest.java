@@ -58,7 +58,8 @@ public final class TournamentClientTest {
         }
 
         TournamentClient tournamentClient = new TournamentClient();
-        String result = tournamentClient.getTossResult(random);
+	//A new Random object with same seed, will produce exactly same output. The client class  calls  two nextInt and nextFloat calls.
+        String result = tournamentClient.getTossResult(new Random(count));
         System.out.println(result);
         assertTrue(isTossCorrect(teams, weatherIndex, dayIndex, result));
     }
