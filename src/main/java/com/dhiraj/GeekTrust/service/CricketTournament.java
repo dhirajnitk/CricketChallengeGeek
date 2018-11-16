@@ -2,9 +2,8 @@ package com.dhiraj.GeekTrust.service;
 
 import com.dhiraj.GeekTrust.util.Team;
 import com.dhiraj.GeekTrust.util.Teams;
-import com.dhiraj.GeekTrust.util.TossType;
+import javafx.util.Pair;
 import java.io.IOException;
-
 public class CricketTournament {
 
     private Toss toss;
@@ -13,8 +12,9 @@ public class CricketTournament {
         toss = new Toss();
     }
 
-    public int  evaluateToss(Teams teams, String ... inputs){
-        return toss.getTossResult(teams, inputs);
+    public Pair<Teams,Teams>  evaluateToss(Pair<Teams, Teams> teamsPair, String ... inputs){
+
+        return toss.getTossResult(teamsPair, inputs);
 
     }
 
@@ -29,7 +29,7 @@ public class CricketTournament {
 
     }
 
-    public void chaseSingleInning(Team team, int overs, int runs) throws IOException {
+    public void chaseInning(Team team, int overs, int runs) throws IOException {
         Inning dummy = new Inning(null, overs, Inning.Type.FIRST );
         dummy.setTargetScore(runs);
         Inning inning2 = new Inning(dummy, team, overs);

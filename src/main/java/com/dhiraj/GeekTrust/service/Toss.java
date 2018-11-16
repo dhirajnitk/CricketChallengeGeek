@@ -4,13 +4,17 @@ import com.dhiraj.GeekTrust.util.DayNightType;
 import com.dhiraj.GeekTrust.util.Teams;
 import com.dhiraj.GeekTrust.util.TossType;
 import com.dhiraj.GeekTrust.util.WeatherType;
+import javafx.util.Pair;
+
 import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class Toss {
 
     private Integer evaluateToss(Teams teams, String [] inputs){
+
         Integer type = 0;
         for(String input: inputs){
             WeatherType[] weatherTypes = WeatherType.values();
@@ -55,8 +59,36 @@ public class Toss {
         tossDayMatrix.put(new AbstractMap.SimpleEntry<>(Teams.Enchai, DayNightType.NIGHT),TossType.BATS);
     }
 
-    int  getTossResult(Teams teams, String ... inputs){
+    Pair<Teams,Teams>  getTossResult(Pair<Teams, Teams> teams, String ... inputs){
+        Random r = new Random(System.currentTimeMillis());
+        Teams team1, team2;
+        if(r.nextFloat() < 0.5f){
+            //Winner
+            team1 = teams.getKey();
+            //looser
+            team2 = teams.getValue();
+        }
+        else{
+            //Winner
+            team1 = teams.getValue();
+            //looser
+            team2 = teams.getKey();
+        }
+        int result = evaluateToss(team1, inputs);
+        if(result>0){
+            return new Pair<Teams,Teams>(team1, team1);
+        }
+        else
+            return new Pair<Teams,Teams>(team1, team2);
+
+    }
+    /*
+    int getTossResult(Teams teams, String ... inputs){
         return evaluateToss(teams, inputs);
     }
+
+*/
+
+
 
 }

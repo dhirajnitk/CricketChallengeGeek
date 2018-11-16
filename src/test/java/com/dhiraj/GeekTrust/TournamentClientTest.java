@@ -2,6 +2,7 @@ package com.dhiraj.GeekTrust;
 
 import com.dhiraj.GeekTrust.client.TournamentClient;
 import com.dhiraj.GeekTrust.util.Teams;
+import javafx.util.Pair;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -15,8 +16,7 @@ public final class TournamentClientTest {
 
     private final static List<String> weatherType = Arrays.asList("Clear","Cloudy");
     private final static List<String> dayType = Arrays.asList("Day", "Night");
-    private final int count = new Random().nextInt(10);
-
+    private final int count = new Random().nextInt(10) + 1 ;
     private boolean isTossCorrect(Teams teams, int weatherIndex, int dayIndex, String result){
         boolean isBat = result.contains("bats");
         boolean isBowl = result.contains("bowls");
@@ -45,37 +45,37 @@ public final class TournamentClientTest {
 
     @Test
     public void testToss()  {
-        int weatherIndex =  new Random().nextInt(weatherType.size());
-        int dayIndex =  new Random().nextInt(dayType.size());
-        TournamentClient playTournament = new TournamentClient();
+        Random random = new Random(count);
+        int weatherIndex =  random.nextInt(weatherType.size());
+        int dayIndex =  random.nextInt(dayType.size());
         System.out.println("Input: "+weatherType.get(weatherIndex) +" "+dayType.get(dayIndex));
-        Random r = new Random(System.currentTimeMillis());
         Teams teams;
-        if(r.nextFloat() < 0.5f){
+        if(random.nextFloat() < 0.5f){
             teams = Teams.Lengaburu;
         }
         else{
             teams = Teams.Enchai;
         }
 
-        String result = playTournament.getTossResult(teams, weatherType.get(weatherIndex), dayType.get(dayIndex));
+        TournamentClient tournamentClient = new TournamentClient();
+        String result = tournamentClient.getTossResult(random);
         System.out.println(result);
         assertTrue(isTossCorrect(teams, weatherIndex, dayIndex, result));
     }
 
     @Test
     public void testSuperOverMatch()  {
-        TournamentClient playTournament = new TournamentClient();
+        TournamentClient tournamentClient = new TournamentClient();
         for(int index = 0; index < count; index++)
-            assertTrue(playTournament.playSuperOverMatch());
+            assertTrue(tournamentClient.playSuperOverMatch());
     }
 
 
     @Test
     public void testChaseMatch() {
-        TournamentClient playTournament = new TournamentClient();
+        TournamentClient tournamentClient = new TournamentClient();
         for(int index = 0; index < count; index++)
-            assertTrue(playTournament.chase4OverMatch());
+            assertTrue(tournamentClient.chaseMatch(4,40));
     }
 
 }

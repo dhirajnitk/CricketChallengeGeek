@@ -4,21 +4,40 @@ import com.dhiraj.GeekTrust.service.CricketTournament;
 import com.dhiraj.GeekTrust.util.Team;
 import com.dhiraj.GeekTrust.util.Teams;
 import com.dhiraj.GeekTrust.util.TossType;
+import javafx.util.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 public class TournamentClient {
 
     private static final Logger logger = LoggerFactory.getLogger(TournamentClient.class);
     private CricketTournament  cricketTournament = new CricketTournament();
+    private final static List<String> weatherType = Arrays.asList("Clear","Cloudy");
+    private final static List<String> dayType = Arrays.asList("Day", "Night");
 
-    public String getTossResult(Teams teams, String ... inputs){
-        int tossResult = cricketTournament.evaluateToss(teams, inputs);
-        String outputFormat = "%s wins toss and %s";
-        return String.format(outputFormat, teams.toString(),  TossType.values()[tossResult].name().toLowerCase());
+    private Pair<Teams,Teams> getToss(Random random){
+        Pair<Teams,Teams> teamsPair = new Pair<Teams,Teams>(Teams.Lengaburu, Teams.Enchai);
+        int weatherIndex =  random.nextInt(weatherType.size());
+        int dayIndex =  random.nextInt(dayType.size());
+        return  cricketTournament.evaluateToss(teamsPair, weatherType.get(weatherIndex), dayType.get(dayIndex));
+    }
+
+    public String getTossResult(Random random){
+        Pair<Teams,Teams> tossResult = getToss(random);
+        String batFormat = "%s wins toss and bats";
+        String bowlFormat = "%s wins toss and bowls";
+        if(tossResult.getKey()  == tossResult.getValue())
+            return String.format(batFormat, tossResult.getKey().name());
+        return String.format(bowlFormat, tossResult.getKey().name());
+
 
     }
+
+
     public  boolean  playSuperOverMatch(){
         final  String [] lengaburuNames = {"Kirat Boli","N.S Nodhi"};
         final  String [] enchaiNames = {"DB Vellyers","H Mamla"};
@@ -30,9 +49,19 @@ public class TournamentClient {
                 {5, 10, 25, 10, 25, 1, 14, 10},
                 {10, 15, 15, 10, 20,1, 19, 10}
         };
-
-        Team team1 = new Team("Lengaburu",lengaburuNames, lengaburuProbMatrix);
-        Team team2 = new Team("Enchai",enchaiNames, enchaiProbMatrix);
+        Pair<Teams,Teams> tossResult = getToss(new Random());
+        Teams teams1, teams2;
+        if(tossResult.getKey() == tossResult.getValue()){
+            teams1 = tossResult.getKey();
+            int index = Teams.values().length - 1 - Teams.valueOf(teams1.name()).ordinal();
+            teams2 = Teams.values()[index];
+        }
+        else{
+            teams1 = tossResult.getValue();
+            teams2 = tossResult.getKey();
+        }
+        Team team1 = new Team(teams1.name(),lengaburuNames, lengaburuProbMatrix);
+        Team team2 = new Team(teams2.name(),enchaiNames, enchaiProbMatrix);
         try {
             cricketTournament.playMatch(team1, team2,1);
         } catch (IOException e) {
@@ -42,7 +71,8 @@ public class TournamentClient {
         return true;
 
     }
-    public  boolean chase4OverMatch()  {
+
+    public  boolean chaseMatch(int overs, int runsToWin)  {
         final  String [] lengaburuNames = {"Kirat Boli","N.S Nodhi","R Rumrah","Shashi Henra"};
         int [][] lengaburuProbMatrix = {
                 {5, 30, 25, 10, 15, 1, 9, 5},
@@ -53,7 +83,7 @@ public class TournamentClient {
 
         Team team = new Team("Lengaburu",lengaburuNames, lengaburuProbMatrix);
         try {
-            cricketTournament.chaseSingleInning(team, 4, 40);
+            cricketTournament.chaseInning(team, overs, runsToWin);
         } catch (IOException e) {
             logger.error(e.getMessage());
             return false;
