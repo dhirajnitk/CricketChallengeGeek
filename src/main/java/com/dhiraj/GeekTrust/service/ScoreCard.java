@@ -31,9 +31,9 @@ public class ScoreCard {
 
         Team team = inning.getTeam();
         for(int index = 0; index <team.getSize(); index++){
-            if(inning.getOutPlayerSet().contains(index))
+            if(inning.isOutPlayer(index))
                 scorePrint.println(team.getPlayerName(index)+" - "+ inning.getStrikeRate(index).getValue()+"("+ inning.getStrikeRate(index).getKey()+" balls)");
-            else if(inning.getCurrentPlayers().containsValue(index))
+            else if(inning.isCurrentPlayer(index))
                 scorePrint.println(team.getPlayerName(index)+" - "+inning.getStrikeRate(index).getValue()+"*("+ inning.getStrikeRate(index).getKey()+" balls)");
         }
 

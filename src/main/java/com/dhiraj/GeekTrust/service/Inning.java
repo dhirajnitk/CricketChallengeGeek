@@ -241,11 +241,13 @@ public class Inning {
         return team;
     }
 
-     Set<Integer> getOutPlayerSet() {
-        return outPlayerSet;
+    boolean isOutPlayer(int index){
+        return outPlayerSet.contains(index);
     }
 
-     Map<Boolean, Integer> getCurrentPlayers() {
-        return currentPlayers;
+
+    boolean isCurrentPlayer(int index){
+        return currentPlayers.containsValue(index);
     }
+
 }
