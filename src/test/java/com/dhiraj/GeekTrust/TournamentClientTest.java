@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 @FixMethodOrder(MethodSorters.DEFAULT)
+
 public final class TournamentClientTest {
 
     private final static List<String> weatherType = Arrays.asList("Clear","Cloudy");
@@ -58,7 +59,7 @@ public final class TournamentClientTest {
         }
 
         TournamentClient tournamentClient = new TournamentClient();
-	    //A new Random object with same seed, will produce exactly same output.
+        //A new Random object with same seed, will produce exactly same output.
         String result = tournamentClient.getTossResult(new Random(count));
         System.out.println(result);
         assertTrue(isTossCorrect(teams, weatherIndex, dayIndex, result));

@@ -3,7 +3,6 @@ package com.dhiraj.GeekTrust.client;
 import com.dhiraj.GeekTrust.service.CricketTournament;
 import com.dhiraj.GeekTrust.util.Team;
 import com.dhiraj.GeekTrust.util.Teams;
-import com.dhiraj.GeekTrust.util.TossType;
 import javafx.util.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +20,7 @@ public class TournamentClient {
         Pair<Teams,Teams> teamsPair = new Pair<Teams,Teams>(Teams.Lengaburu, Teams.Enchai);
         int weatherIndex =  random.nextInt(weatherType.size());
         int dayIndex =  random.nextInt(dayType.size());
-        return  cricketTournament.evaluateToss(teamsPair, weatherType.get(weatherIndex), dayType.get(dayIndex));
+        return  cricketTournament.evaluateToss(random, teamsPair, weatherType.get(weatherIndex), dayType.get(dayIndex));
     }
 
     public String getTossResult(Random random){

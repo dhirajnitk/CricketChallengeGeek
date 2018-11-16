@@ -4,6 +4,8 @@ import com.dhiraj.GeekTrust.util.Team;
 import com.dhiraj.GeekTrust.util.Teams;
 import javafx.util.Pair;
 import java.io.IOException;
+import java.util.Random;
+
 public class CricketTournament {
 
     private Toss toss;
@@ -12,9 +14,9 @@ public class CricketTournament {
         toss = new Toss();
     }
 
-    public Pair<Teams,Teams>  evaluateToss(Pair<Teams, Teams> teamsPair, String ... inputs){
+    public Pair<Teams,Teams>  evaluateToss(Random random, Pair<Teams, Teams> teamsPair, String ... inputs){
 
-        return toss.getTossResult(teamsPair, inputs);
+        return toss.getTossResult(random, teamsPair, inputs);
 
     }
 

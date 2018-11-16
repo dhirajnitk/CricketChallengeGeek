@@ -28,12 +28,14 @@ public class Result {
         this.isDraw = true;
     }
 
-    public Team getWinningTeam() {
-        return winningTeam;
+    public String getWinningTeam() {
+        if(winningTeam!= null)
+            return winningTeam.getTeamName();
+        return null;
     }
 
-    public Team getLosingTeam() {
-        return losingTeam;
+    public String getLosingTeam() {
+        return losingTeam.getTeamName();
     }
 
     public int getBallRemaining() {

@@ -59,10 +59,9 @@ public class Toss {
         tossDayMatrix.put(new AbstractMap.SimpleEntry<>(Teams.Enchai, DayNightType.NIGHT),TossType.BATS);
     }
 
-    Pair<Teams,Teams>  getTossResult(Pair<Teams, Teams> teams, String ... inputs){
-        Random r = new Random(System.currentTimeMillis());
+    Pair<Teams,Teams>  getTossResult(Random random, Pair<Teams, Teams> teams, String ... inputs){
         Teams team1, team2;
-        if(r.nextFloat() < 0.5f){
+        if(random.nextFloat() < 0.5f){
             //Winner
             team1 = teams.getKey();
             //looser
@@ -82,12 +81,7 @@ public class Toss {
             return new Pair<Teams,Teams>(team1, team2);
 
     }
-    /*
-    int getTossResult(Teams teams, String ... inputs){
-        return evaluateToss(teams, inputs);
-    }
 
-*/
 
 
 
