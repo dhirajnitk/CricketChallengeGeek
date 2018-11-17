@@ -122,14 +122,13 @@ public class Inning {
 
     private  Pair<Boolean, Integer> playOver(int overIndex){
         for(int ball = 0; ball < 6; ball++){
-            if(!playShot(""+overIndex+"."+(ball+1)))
-                return new Pair<>(false,null);
-            else{
-                if(type == Type.SECOMD) {
-                    if (runsToWin <= runs)
+            if(!playShot(""+overIndex+"."+(ball+1))) {
+                return new Pair<>(false, null);
+            }
+            else if(type == Type.SECOMD) {
+                    if (runsToWin <= runs) {
                         return new Pair<>(true, 6 - ball - 1);
-                }
-
+                    }
             }
         }
         return new Pair<>(null,null);
@@ -183,7 +182,8 @@ public class Inning {
                     commentary.addCommentary(team.getTeamName()+" wins");
                     ballRemaining =  overResult.getValue()+ (overs - over -1)*6;
 
-                } else {
+                }
+                else {
                     commentary.addCommentary(team.getTeamName()+" all out");
                 }
                 break;

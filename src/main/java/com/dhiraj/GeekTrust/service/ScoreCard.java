@@ -44,29 +44,24 @@ public class ScoreCard {
         if (result.isDraw()) {
             scorePrint.println(cricketProperties.getProperty("tieFormat"));
         }
-        else {
-            if (result.getWinningTeam() != null) {
-                String winFormat;
-                if (result.getLossRuns() > 0) {
-                    winFormat = result.getWinningTeam() + " won by %d runs";
-                    scorePrint.println(String.format(winFormat, result.getLossRuns()));
-                }
-                else {
-                    if(secondInning.getFirstInning().getTeam() != null) {
-                        winFormat = result.getWinningTeam() + " won with %d balls remaining";
-                        scorePrint.println(String.format(winFormat, result.getBallRemaining()));
-                    }
-                    else{
-                        winFormat = result.getWinningTeam() + " "+cricketProperties.getProperty("winFormat");
-                        scorePrint.println(String.format(winFormat, result.getWicketRemaining(), result.getBallRemaining()));
-                    }
-
-                }
+        else if (result.getWinningTeam() != null) {
+            String winFormat;
+            if (result.getLossRuns() > 0) {
+                winFormat = result.getWinningTeam() + " won by %d runs";
+                scorePrint.println(String.format(winFormat, result.getLossRuns()));
             }
+            else if (secondInning.getFirstInning().getTeam() != null) {
+                    winFormat = result.getWinningTeam() + " won with %d balls remaining";
+                    scorePrint.println(String.format(winFormat, result.getBallRemaining()));
+                }
             else {
-                String lossFormat = result.getLosingTeam() + " "+cricketProperties.getProperty("lossFormat");
-                scorePrint.println(String.format(lossFormat, result.getLossRuns()));
-            }
+                winFormat = result.getWinningTeam() + " " + cricketProperties.getProperty("winFormat");
+                scorePrint.println(String.format(winFormat, result.getWicketRemaining(), result.getBallRemaining()));
+                }
+        }
+        else{
+            String lossFormat = result.getLosingTeam() + " " + cricketProperties.getProperty("lossFormat");
+            scorePrint.println(String.format(lossFormat, result.getLossRuns()));
         }
 
         if(secondInning.getFirstInning().getTeam() != null) {

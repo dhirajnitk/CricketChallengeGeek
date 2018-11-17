@@ -17,29 +17,25 @@ public final class TournamentClientTest {
 
     private final static List<String> weatherType = Arrays.asList("Clear","Cloudy");
     private final static List<String> dayType = Arrays.asList("Day", "Night");
-    private final int count = new Random().nextInt(10) + 1 ;
+    private final int count =  new Random().nextInt(10) + 1 ;
     private boolean isTossCorrect(Teams teams, int weatherIndex, int dayIndex, String result){
         boolean isBat = result.contains("bats");
         boolean isBowl = result.contains("bowls");
         if (teams == Teams.Lengaburu) {
             if(weatherIndex == 0)
                 return isBat;
-            else{
-                if(dayIndex == 0)
+            else if(dayIndex == 0)
                     return isBat;
-                else
+            else
                     return isBowl;
-            }
         }
         else{
             if(weatherIndex == 1)
                 return isBat;
-            else{
-                if(dayIndex == 0)
+            else if(dayIndex == 0)
                     return isBowl;
-                else
+            else
                     return isBat;
-            }
         }
 
     }
