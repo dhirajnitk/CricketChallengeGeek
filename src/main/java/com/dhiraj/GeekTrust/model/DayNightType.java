@@ -1,4 +1,4 @@
-package com.dhiraj.GeekTrust.util;
+package com.dhiraj.GeekTrust.model;
 
 public enum DayNightType {
     DAY, NIGHT;

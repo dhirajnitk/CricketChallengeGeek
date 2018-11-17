@@ -1,6 +1,4 @@
-package com.dhiraj.GeekTrust.service;
-
-import com.dhiraj.GeekTrust.util.Team;
+package com.dhiraj.GeekTrust.model;
 
 public class Result {
 

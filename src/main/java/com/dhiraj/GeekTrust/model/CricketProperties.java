@@ -1,4 +1,4 @@
-package com.dhiraj.GeekTrust.service;
+package com.dhiraj.GeekTrust.model;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

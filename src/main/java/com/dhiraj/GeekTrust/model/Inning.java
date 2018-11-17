@@ -1,6 +1,5 @@
-package com.dhiraj.GeekTrust.service;
+package com.dhiraj.GeekTrust.model;
 
-import com.dhiraj.GeekTrust.util.Team;
 import javafx.util.Pair;
 import java.io.IOException;
 import java.util.*;
@@ -8,7 +7,7 @@ import java.util.*;
 public class Inning {
 
     private Team team;
-    enum Type { FIRST, SECOMD};
+    public enum Type { FIRST, SECOMD};
     private Type type;
     private  int overs ;
     private  int runsToWin;
@@ -20,11 +19,11 @@ public class Inning {
     private Map<Boolean,Integer> currentPlayers;
     private  int nextPlayerIndex;
     private int ballRemaining;
-    private  Commentary commentary;
+    private Commentary commentary;
     private CricketProperties cricketProperties;
     private Random random;
 
-    Inning(Inning firstInning, Team team, int overs) throws IOException {
+    public Inning(Inning firstInning, Team team, int overs) throws IOException {
         this(team, overs, Type.SECOMD);
         this.runsToWin = firstInning.runsToWin;
         this.firstInning = firstInning;
@@ -34,7 +33,7 @@ public class Inning {
             this.commentary = firstInning.commentary;
     }
 
-    Inning(Team team, int overs, Type type) throws IOException {
+    public Inning(Team team, int overs, Type type) throws IOException {
         this.team = team;
         this.overs = overs;
         this.type = type;
@@ -223,7 +222,7 @@ public class Inning {
         return result;
     }
 
-    Result playInning() throws IOException {
+    public Result playInning() throws IOException {
         if(type == Type.FIRST)
             return makeTarget();
         else

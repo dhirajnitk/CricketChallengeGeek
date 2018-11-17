@@ -1,7 +1,6 @@
 package com.dhiraj.GeekTrust.service;
 
-import com.dhiraj.GeekTrust.util.Team;
-import com.dhiraj.GeekTrust.util.Teams;
+import com.dhiraj.GeekTrust.model.*;
 import javafx.util.Pair;
 import java.io.IOException;
 import java.util.Random;

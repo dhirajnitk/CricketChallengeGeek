@@ -1,6 +1,5 @@
-package com.dhiraj.GeekTrust.service;
+package com.dhiraj.GeekTrust.model;
 
-import com.dhiraj.GeekTrust.util.Team;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -23,8 +22,7 @@ public class ScoreCard {
         this.cricketProperties = Commentary.getCricketProperties();
         scoreFileName = cricketProperties.getProperty("scoreCardFileName");
         scoreFile = new FileWriter(scoreFileName,false);
-        if(scorePrint== null)
-            scorePrint = new PrintWriter(scoreFile);
+        scorePrint = new PrintWriter(scoreFile);
     }
 
     private void commonWriteScoreCard(Inning inning){

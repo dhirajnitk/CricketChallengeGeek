@@ -1,4 +1,4 @@
-package com.dhiraj.GeekTrust.util;
+package com.dhiraj.GeekTrust.model;
 
 import java.util.Arrays;
 import java.util.List;

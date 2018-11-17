@@ -1,4 +1,4 @@
-package com.dhiraj.GeekTrust.service;
+package com.dhiraj.GeekTrust.model;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;

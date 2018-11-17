@@ -1,8 +1,7 @@
 package com.dhiraj.GeekTrust;
 
 import com.dhiraj.GeekTrust.client.TournamentClient;
-import com.dhiraj.GeekTrust.util.Teams;
-import javafx.util.Pair;
+import com.dhiraj.GeekTrust.model.Teams;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;

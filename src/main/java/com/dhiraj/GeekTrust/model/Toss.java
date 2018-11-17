@@ -1,9 +1,5 @@
-package com.dhiraj.GeekTrust.service;
+package com.dhiraj.GeekTrust.model;
 
-import com.dhiraj.GeekTrust.util.DayNightType;
-import com.dhiraj.GeekTrust.util.Teams;
-import com.dhiraj.GeekTrust.util.TossType;
-import com.dhiraj.GeekTrust.util.WeatherType;
 import javafx.util.Pair;
 
 import java.util.AbstractMap;
@@ -59,7 +55,7 @@ public class Toss {
         tossDayMatrix.put(new AbstractMap.SimpleEntry<>(Teams.Enchai, DayNightType.NIGHT),TossType.BATS);
     }
 
-    Pair<Teams,Teams>  getTossResult(Random random, Pair<Teams, Teams> teams, String ... inputs){
+    public Pair<Teams,Teams>  getTossResult(Random random, Pair<Teams, Teams> teams, String ... inputs){
         Teams team1, team2;
         if(random.nextFloat() < 0.5f){
             //Winner

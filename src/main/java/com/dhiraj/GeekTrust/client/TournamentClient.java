@@ -1,8 +1,8 @@
 package com.dhiraj.GeekTrust.client;
 
 import com.dhiraj.GeekTrust.service.CricketTournament;
-import com.dhiraj.GeekTrust.util.Team;
-import com.dhiraj.GeekTrust.util.Teams;
+import com.dhiraj.GeekTrust.model.Team;
+import com.dhiraj.GeekTrust.model.Teams;
 import javafx.util.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +16,9 @@ public class TournamentClient {
     private final static List<String> weatherType = Arrays.asList("Clear","Cloudy");
     private final static List<String> dayType = Arrays.asList("Day", "Night");
 
+    public TournamentClient(){
+
+    }
     private Pair<Teams,Teams> getToss(Random random){
         Pair<Teams,Teams> teamsPair = new Pair<Teams,Teams>(Teams.Lengaburu, Teams.Enchai);
         int weatherIndex =  random.nextInt(weatherType.size());
