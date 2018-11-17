@@ -50,7 +50,8 @@ public class ScoreCard {
                 if (result.getLossRuns() > 0) {
                     winFormat = result.getWinningTeam() + " won by %d runs";
                     scorePrint.println(String.format(winFormat, result.getLossRuns()));
-                } else {
+                }
+                else {
                     if(secondInning.getFirstInning().getTeam() != null) {
                         winFormat = result.getWinningTeam() + " won with %d balls remaining";
                         scorePrint.println(String.format(winFormat, result.getBallRemaining()));
@@ -61,7 +62,8 @@ public class ScoreCard {
                     }
 
                 }
-            } else {
+            }
+            else {
                 String lossFormat = result.getLosingTeam() + " "+cricketProperties.getProperty("lossFormat");
                 scorePrint.println(String.format(lossFormat, result.getLossRuns()));
             }

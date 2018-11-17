@@ -140,6 +140,7 @@ public class Inning {
     }
 
     private Result  makeTarget()  {
+        Result result = null;
         commentary.addCommentary("Sample commentary\n\n");
         commentary.addCommentary(team.getTeamName()+" innings\n");
         for(int over = 0; over<overs; over++){
@@ -158,7 +159,7 @@ public class Inning {
         }
         setTargetScore(runs +1);
         commentary.addCommentary("\n");
-        return null;
+        return result;
 
     }
 

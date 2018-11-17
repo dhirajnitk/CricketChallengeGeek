@@ -35,7 +35,9 @@ public class Result {
     }
 
     public String getLosingTeam() {
-        return losingTeam.getTeamName();
+        if(losingTeam != null)
+            return losingTeam.getTeamName();
+        return null;
     }
 
     public int getBallRemaining() {
