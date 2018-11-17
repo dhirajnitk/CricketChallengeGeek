@@ -2,6 +2,7 @@ package com.dhiraj.GeekTrust;
 
 import com.dhiraj.GeekTrust.client.TournamentClient;
 import com.dhiraj.GeekTrust.model.Teams;
+import javafx.util.Pair;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -62,7 +63,18 @@ public final class TournamentClientTest {
 
     @Test
     public void testSuperOverMatch()  {
-        TournamentClient tournamentClient = new TournamentClient();
+        final  String [] lengaburuNames = {"Kirat Boli","N.S Nodhi"};
+        final  String [] enchaiNames = {"DB Vellyers","H Mamla"};
+        final int [][] lengaburuProbMatrix  = {
+                {5, 10, 25, 10, 25, 1, 14, 10},
+                {5, 15, 15, 10, 20, 1, 19, 15}
+        };
+        final int [][] enchaiProbMatrix = {
+                {5, 10, 25, 10, 25, 1, 14, 10},
+                {10, 15, 15, 10, 20,1, 19, 10}
+        };
+        TournamentClient tournamentClient = new TournamentClient(new Pair<Teams, String[]>(Teams.Lengaburu,lengaburuNames), lengaburuProbMatrix, new Pair<Teams, String[]>
+                (Teams.Enchai, enchaiNames), enchaiProbMatrix);
         for(int index = 0; index < count; index++)
             assertTrue(tournamentClient.playSuperOverMatch());
     }
@@ -70,7 +82,14 @@ public final class TournamentClientTest {
 
     @Test
     public void testChaseMatch() {
-        TournamentClient tournamentClient = new TournamentClient();
+        final  String [] lengaburuNames = {"Kirat Boli","N.S Nodhi","R Rumrah","Shashi Henra"};
+        int [][] lengaburuProbMatrix = {
+                {5, 30, 25, 10, 15, 1, 9, 5},
+                {10, 40, 20, 5,10, 1, 4, 10},
+                {20, 30, 15, 5, 5, 1, 4, 20},
+                {30, 25, 5, 0, 5, 1, 4, 30}
+        };
+        TournamentClient tournamentClient = new TournamentClient(new Pair<Teams, String[]>(Teams.Lengaburu,lengaburuNames), lengaburuProbMatrix);
         for(int index = 0; index < count; index++)
             assertTrue(tournamentClient.chaseMatch(4,40));
     }

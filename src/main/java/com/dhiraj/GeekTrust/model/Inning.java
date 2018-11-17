@@ -4,9 +4,10 @@ import javafx.util.Pair;
 import java.io.IOException;
 import java.util.*;
 
-public class Inning {
+public class Inning  implements  Cloneable{
 
     private Team team;
+    private PlayerProbabilityMatrix playerProbabilityMatrix;
     public enum Type { FIRST, SECOMD};
     private Type type;
     private  int overs ;
@@ -23,8 +24,8 @@ public class Inning {
     private CricketProperties cricketProperties;
     private Random random;
 
-    public Inning(Inning firstInning, Team team, int overs) throws IOException {
-        this(team, overs, Type.SECOMD);
+    public Inning(Inning firstInning, Team team, int overs, PlayerProbabilityMatrix playerProbabilityMatrix) throws IOException {
+        this(team, overs, playerProbabilityMatrix, Type.SECOMD);
         this.runsToWin = firstInning.runsToWin;
         this.firstInning = firstInning;
         if(firstInning.commentary == null)
@@ -33,11 +34,12 @@ public class Inning {
             this.commentary = firstInning.commentary;
     }
 
-    public Inning(Team team, int overs, Type type) throws IOException {
+    public Inning(Team team, int overs, PlayerProbabilityMatrix playerProbabilityMatrix, Type type) throws IOException {
         this.team = team;
         this.overs = overs;
         this.type = type;
         if(team!= null) {
+            this.playerProbabilityMatrix = playerProbabilityMatrix;
             this.cricketProperties = new CricketProperties();
             this.random = new Random(System.currentTimeMillis());
             this.commentary = new Commentary(cricketProperties);
@@ -112,7 +114,7 @@ public class Inning {
     private  boolean playShot(String ballIndex){
         int playerIndex= currentPlayers.get(true);
         int score = (int)(random.nextFloat()*100);
-        int shotIndex = Arrays.binarySearch(team.getPlayerCumProb(playerIndex), score);
+        int shotIndex = Arrays.binarySearch(playerProbabilityMatrix.getPlayerCumProb(team.getPlayerName(playerIndex)), score);
         if(shotIndex< 0)
             shotIndex = -1*(shotIndex +1);
         return updateStatistics(playerIndex, shotIndex, ballIndex);

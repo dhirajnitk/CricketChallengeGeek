@@ -19,10 +19,10 @@ public class CricketTournament {
 
     }
 
-    public void playMatch(Team team1, Team team2, int overs) throws IOException {
-        Inning inning1 = new Inning(team1, overs , Inning.Type.FIRST);
+    public void playMatch(Team team1, Team team2, PlayerProbabilityMatrix playerProbability, int overs) throws IOException {
+        Inning inning1 = new Inning(team1, overs , playerProbability, Inning.Type.FIRST);
         inning1.playInning();
-        Inning inning2 = new Inning(inning1, team2, overs);
+        Inning inning2 = new Inning(inning1, team2, overs, playerProbability);
         Result result= inning2.playInning();
         ScoreCard scoreCard = new ScoreCard(result,inning2);
         scoreCard.printScoreCard();
@@ -30,10 +30,10 @@ public class CricketTournament {
 
     }
 
-    public void chaseInning(Team team, int overs, int runs) throws IOException {
-        Inning dummy = new Inning(null, overs, Inning.Type.FIRST );
+    public void chaseInning(Team team, int overs, PlayerProbabilityMatrix playerProbability, int runs) throws IOException {
+        Inning dummy = new Inning(null, overs, playerProbability, Inning.Type.FIRST );
         dummy.setTargetScore(runs);
-        Inning inning2 = new Inning(dummy, team, overs);
+        Inning inning2 = new Inning(dummy, team, overs, playerProbability);
         Result result= inning2.playInning();
         ScoreCard scoreCard = new ScoreCard(result,inning2);
         scoreCard.printScoreCard();
