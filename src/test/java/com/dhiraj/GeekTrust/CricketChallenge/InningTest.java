@@ -33,7 +33,7 @@ public class InningTest {
 
         Inning inning1 = new Inning(new Team(Teams.Lengaburu.name(),lengaburuNames), 1 , playerProbabilityMatrix, Inning.Type.FIRST);
         inning1.playInning();
-        assertTrue(inning1.getRunsToWin() == 17);
+        assertTrue(inning1.getRunsToWin() == 5);
     }
 
 
@@ -43,9 +43,8 @@ public class InningTest {
         inning1.playInning();
         Inning inning2 = new Inning(inning1, new Team(Teams.Enchai.name(),enchaiNames), 1, playerProbabilityMatrix);
         MatchResult result= inning2.playInning();
-        assertTrue(result.getWinningTeam().equals(Teams.Lengaburu.name()));
-        assertTrue(result.getLossRuns() == 1);
-        assertTrue(result.getLosingTeam().equals(Teams.Enchai.name()));
+        assertTrue(result.getWinningTeam().equals(Teams.Enchai.name()));
+        assertTrue(result.getLosingTeam().equals(Teams.Lengaburu.name()));
         assertTrue(result.isDraw() == false);
 
     }

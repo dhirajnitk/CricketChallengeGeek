@@ -17,7 +17,7 @@ public final class TournamentClientTest {
 
     private final static List<String> weatherType = Arrays.asList("Clear","Cloudy");
     private final static List<String> dayType = Arrays.asList("Day", "Night");
-    private final int count =  new Random().nextInt(10) + 1 ;
+    private final int count = 1;
     private boolean isTossCorrect(Teams teams, int weatherIndex, int dayIndex, String result){
         boolean isBat = result.contains("bats");
         boolean isBowl = result.contains("bowls");

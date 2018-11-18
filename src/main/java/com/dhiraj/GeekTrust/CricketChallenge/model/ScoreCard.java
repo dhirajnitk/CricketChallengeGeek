@@ -49,13 +49,13 @@ public class ScoreCard {
                 scorePrint.println(String.format(winFormat, result.getLossRuns()));
             }
             else if (secondInning.getFirstInning().getTeam() != null) {
-                    winFormat = result.getWinningTeam() + " won with %d balls remaining";
-                    scorePrint.println(String.format(winFormat, result.getBallRemaining()));
-                }
+                winFormat = result.getWinningTeam() + " won with %d balls remaining";
+                scorePrint.println(String.format(winFormat, result.getBallRemaining()));
+            }
             else {
                 winFormat = result.getWinningTeam() + " " + cricketProperties.getProperty("winFormat");
                 scorePrint.println(String.format(winFormat, result.getWicketRemaining(), result.getBallRemaining()));
-                }
+            }
         }
         else{
             String lossFormat = result.getLosingTeam() + " " + cricketProperties.getProperty("lossFormat");
@@ -67,13 +67,15 @@ public class ScoreCard {
             scorePrint.println(secondInning.getFirstInning().getTeam().getTeamName());
             commonWriteScoreCard(secondInning.getFirstInning());
         }
-            scorePrint.println();
+        scorePrint.println();
+
         if(secondInning.getFirstInning().getTeam() != null) {
             scorePrint.println(secondInning.getTeam().getTeamName());
         }
-            commonWriteScoreCard(secondInning);
-            cleanUpScoreCard();
-        }
+
+        commonWriteScoreCard(secondInning);
+        cleanUpScoreCard();
+    }
 
     private void cleanUpScoreCard() throws IOException {
         scorePrint.close();

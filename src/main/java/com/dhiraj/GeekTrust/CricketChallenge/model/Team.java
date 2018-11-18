@@ -16,7 +16,6 @@ public class Team implements  Cloneable{
     public Object clone() throws CloneNotSupportedException {
         Team team = (Team)super.clone();
         team.teamName = teamName;
-        //Deep Cloning List
         team.playerNames = playerNames.stream().collect(Collectors.toList());
         return team;
     }

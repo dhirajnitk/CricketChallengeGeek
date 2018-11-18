@@ -134,13 +134,11 @@ public class Inning  implements  Cloneable{
             if(!playShot(""+overIndex+"."+(ball+1))) {
                 return new Pair<>(false, null);
             }
-            else if(type == Type.SECOMD) {
-                    if (runsToWin <= runs) {
-                        return new Pair<>(true, 6 - ball - 1);
-                    }
+            else if (runsToWin <= runs) {
+                return new Pair<>(true, 6 - ball - 1);
             }
         }
-        return new Pair<>(null,null);
+        return new Pair<>(null, null);
     }
 
     public void setTargetScore(int score){
@@ -157,17 +155,14 @@ public class Inning  implements  Cloneable{
         commentary.addCommentary(team.getTeamName()+" innings\n");
         for(int over = 0; over<overs; over++){
             Pair<Boolean, Integer> overResult = playOver(over);
-            if(overResult.getKey()!= null) {
-                if (!overResult.getKey()) {
-                    commentary.addCommentary(team.getTeamName()+" all out");
-                    break;
-                }
+            if(overResult.getKey()!= null  && !overResult.getKey()) {
+                commentary.addCommentary(team.getTeamName()+" all out");
+                break;
             }
             if(over!=overs-1) {
                 commentary.addCommentary("\n");
                 swapPlayer();
             }
-
         }
         setTargetScore(runs +1);
         commentary.addCommentary("\n");
@@ -222,18 +217,20 @@ public class Inning  implements  Cloneable{
 
     private MatchResult getWinner(){
         MatchResult result = null;
-        if(type == Type.SECOMD){
-            if(runs >= runsToWin){
-                result = new MatchResult(team, firstInning.team, wicketsLeft, ballRemaining);
-            }
-            else if(runs < runsToWin -1){
-                result = new MatchResult(firstInning.team, team, runsToWin - runs - 1);
-            }
-            else{
-                result = new MatchResult();
-            }
+        if(type != Type.SECOMD){
+            return result;
+        }
+        if(runs >= runsToWin){
+            result = new MatchResult(team, firstInning.team, wicketsLeft, ballRemaining);
+        }
+        else if(runs < runsToWin -1){
+            result = new MatchResult(firstInning.team, team, runsToWin - runs - 1);
+        }
+        else{
+            result = new MatchResult();
         }
         return result;
+
     }
 
     public MatchResult playInning() throws IOException {

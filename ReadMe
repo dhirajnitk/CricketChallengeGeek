@@ -4,6 +4,6 @@
 4. Running command "mvn test" will run all three unit tests and print the output in console.
 5. Public Getters and setters limited to Primitive types. Innning class exposes package specific getters for Report class to use.
 6. Inning class public apis are tested in unit test "InningTest"
-
+7. Seed is fixed to 100 in  Application.properties. Change the seed to -1 for getting random results.
 
 
