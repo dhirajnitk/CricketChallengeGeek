@@ -1,7 +1,7 @@
-package com.dhiraj.GeekTrust;
+package com.dhiraj.GeekTrust.CricketChallenge;
 
-import com.dhiraj.GeekTrust.client.TournamentClient;
-import com.dhiraj.GeekTrust.model.Teams;
+import com.dhiraj.GeekTrust.CricketChallenge.model.Teams;
+import com.dhiraj.GeekTrust.CricketChallenge.client.TournamentClient;
 import javafx.util.Pair;
 import org.junit.FixMethodOrder;
 import org.junit.Test;

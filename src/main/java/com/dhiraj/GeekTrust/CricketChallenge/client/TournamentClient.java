@@ -1,9 +1,9 @@
-package com.dhiraj.GeekTrust.client;
+package com.dhiraj.GeekTrust.CricketChallenge.client;
 
-import com.dhiraj.GeekTrust.model.PlayerProbabilityMatrix;
-import com.dhiraj.GeekTrust.service.CricketTournament;
-import com.dhiraj.GeekTrust.model.Team;
-import com.dhiraj.GeekTrust.model.Teams;
+import com.dhiraj.GeekTrust.CricketChallenge.model.PlayerProbabilityMatrix;
+import com.dhiraj.GeekTrust.CricketChallenge.model.Team;
+import com.dhiraj.GeekTrust.CricketChallenge.model.Teams;
+import com.dhiraj.GeekTrust.CricketChallenge.service.CricketTournament;
 import javafx.util.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,9 +29,11 @@ public class TournamentClient {
         teamsDetails.put(team.getKey(), new Pair<String[],int [][]>(team.getValue(), prbMatrix));
         playerProbabilityMatrix = new PlayerProbabilityMatrix();
     }
+
     public TournamentClient(){
 
     }
+
     private Pair<Teams,Teams> getToss(Random random){
         Pair<Teams,Teams> teamsPair = new Pair<Teams,Teams>(Teams.Lengaburu, Teams.Enchai);
         int weatherIndex =  random.nextInt(weatherType.size());
@@ -46,8 +48,6 @@ public class TournamentClient {
         if(tossResult.getKey()  == tossResult.getValue())
             return String.format(batFormat, tossResult.getKey().name());
         return String.format(bowlFormat, tossResult.getKey().name());
-
-
     }
 
 
@@ -70,7 +70,7 @@ public class TournamentClient {
         Team team2 = new Team(teams2.name(),teamsDetails.get(teams2).getKey());
         try {
             cricketTournament.playMatch(team1, team2, playerProbabilityMatrix, 1);
-        } catch (IOException e) {
+        } catch (IOException | CloneNotSupportedException e) {
             logger.error(e.getMessage());
             return false;
         }
@@ -88,7 +88,7 @@ public class TournamentClient {
         Team team = new Team(teamDetailsEntry.getKey().name(),teamDetailsEntry.getValue().getKey());
         try {
             cricketTournament.chaseInning(team, overs,playerProbabilityMatrix, runsToWin);
-        } catch (IOException e) {
+        } catch (IOException| CloneNotSupportedException e ) {
             logger.error(e.getMessage());
             return false;
         }

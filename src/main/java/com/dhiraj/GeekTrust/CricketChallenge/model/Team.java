@@ -1,11 +1,10 @@
-package com.dhiraj.GeekTrust.model;
+package com.dhiraj.GeekTrust.CricketChallenge.model;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.IntStream;
+import java.util.stream.Collectors;
 
-public class Team {
+public class Team implements  Cloneable{
 
     private String teamName;
     private List<String> playerNames;
@@ -14,7 +13,13 @@ public class Team {
         playerNames = Arrays.asList(names);
 
     }
-
+    public Object clone() throws CloneNotSupportedException {
+        Team team = (Team)super.clone();
+        team.teamName = teamName;
+        //Deep Cloning List
+        team.playerNames = playerNames.stream().collect(Collectors.toList());
+        return team;
+    }
     public int getSize(){
         return playerNames.size();
     }

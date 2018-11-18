@@ -1,6 +1,6 @@
-package com.dhiraj.GeekTrust.service;
+package com.dhiraj.GeekTrust.CricketChallenge.service;
 
-import com.dhiraj.GeekTrust.model.*;
+import com.dhiraj.GeekTrust.CricketChallenge.model.*;
 import javafx.util.Pair;
 import java.io.IOException;
 import java.util.Random;
@@ -19,22 +19,22 @@ public class CricketTournament {
 
     }
 
-    public void playMatch(Team team1, Team team2, PlayerProbabilityMatrix playerProbability, int overs) throws IOException {
+    public void playMatch(Team team1, Team team2, PlayerProbabilityMatrix playerProbability, int overs) throws IOException, CloneNotSupportedException {
         Inning inning1 = new Inning(team1, overs , playerProbability, Inning.Type.FIRST);
         inning1.playInning();
         Inning inning2 = new Inning(inning1, team2, overs, playerProbability);
-        Result result= inning2.playInning();
+        MatchResult result= inning2.playInning();
         ScoreCard scoreCard = new ScoreCard(result,inning2);
         scoreCard.printScoreCard();
         Commentary.printCommentary();
 
     }
 
-    public void chaseInning(Team team, int overs, PlayerProbabilityMatrix playerProbability, int runs) throws IOException {
+    public void chaseInning(Team team, int overs, PlayerProbabilityMatrix playerProbability, int runs) throws IOException, CloneNotSupportedException {
         Inning dummy = new Inning(null, overs, playerProbability, Inning.Type.FIRST );
         dummy.setTargetScore(runs);
         Inning inning2 = new Inning(dummy, team, overs, playerProbability);
-        Result result= inning2.playInning();
+        MatchResult result= inning2.playInning();
         ScoreCard scoreCard = new ScoreCard(result,inning2);
         scoreCard.printScoreCard();
         Commentary.printCommentary();

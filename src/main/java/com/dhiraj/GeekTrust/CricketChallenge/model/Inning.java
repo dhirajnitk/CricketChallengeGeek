@@ -1,4 +1,4 @@
-package com.dhiraj.GeekTrust.model;
+package com.dhiraj.GeekTrust.CricketChallenge.model;
 
 import javafx.util.Pair;
 import java.io.IOException;
@@ -8,7 +8,7 @@ public class Inning  implements  Cloneable{
 
     private Team team;
     private PlayerProbabilityMatrix playerProbabilityMatrix;
-    public enum Type { FIRST, SECOMD};
+    public enum Type { FIRST, SECOMD}
     private Type type;
     private  int overs ;
     private  int runsToWin;
@@ -41,22 +41,30 @@ public class Inning  implements  Cloneable{
         if(team!= null) {
             this.playerProbabilityMatrix = playerProbabilityMatrix;
             this.cricketProperties = new CricketProperties();
-            this.random = new Random(System.currentTimeMillis());
             this.commentary = new Commentary(cricketProperties);
+            int seed = Integer.valueOf(cricketProperties.getProperty("seed"));
+            if(seed == -1)
+                this.random = new Random(System.currentTimeMillis());
+            else
+                this.random  = new Random(seed);
             currentPlayers = new HashMap<>();
             currentPlayers.put(true, 0);
             currentPlayers.put(false, 1);
             outPlayerSet = new HashSet<>();
-            strikeRate = new Pair[team.getSize()];
-            for (int index = 0; index < team.getSize(); index++) {
-                strikeRate[index] = new Pair<>(0, 0);
+            if(team.getSize() > 0){
+                strikeRate = new Pair[team.getSize()];
+                for (int index = 0; index < team.getSize(); index++) {
+                    strikeRate[index] = new Pair<>(0, 0);
+                }
             }
             wicketsLeft = team.getSize() - 1;
             nextPlayerIndex = 2;
         }
 
     }
-
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
     private void swapPlayer(){
         Integer player1Index = currentPlayers.get(true);
         Integer player2Index = currentPlayers.get(false);
@@ -139,8 +147,12 @@ public class Inning  implements  Cloneable{
         runsToWin = score;
     }
 
-    private Result  makeTarget()  {
-        Result result = null;
+    public int getRunsToWin() {
+        return runsToWin;
+    }
+
+
+    private MatchResult makeTarget()  {
         commentary.addCommentary("Sample commentary\n\n");
         commentary.addCommentary(team.getTeamName()+" innings\n");
         for(int over = 0; over<overs; over++){
@@ -159,18 +171,18 @@ public class Inning  implements  Cloneable{
         }
         setTargetScore(runs +1);
         commentary.addCommentary("\n");
-        return result;
+        return null;
 
     }
 
-    private Result chaseTarget() throws IOException {
+    private MatchResult chaseTarget() throws IOException {
         commentary.addCommentary("\n");
         String outputFormat = cricketProperties.getProperty("outputFormat");
         if(firstInning.strikeRate == null)
             commentary.addCommentary("Sample commentary\n\n");
         else
             commentary.addCommentary(team.getTeamName()+" innings\n");
-        Pair<Boolean, Integer> overResult = null;
+        Pair<Boolean, Integer> overResult;
         for(int over = 0; over<overs; over++){
             if(firstInning.strikeRate == null || overs > 1){
                 commentary.addCommentary("\n");
@@ -208,23 +220,23 @@ public class Inning  implements  Cloneable{
 
     }
 
-    private  Result getWinner(){
-        Result result = null;
+    private MatchResult getWinner(){
+        MatchResult result = null;
         if(type == Type.SECOMD){
             if(runs >= runsToWin){
-                result = new Result(team, firstInning.team, wicketsLeft, ballRemaining);
+                result = new MatchResult(team, firstInning.team, wicketsLeft, ballRemaining);
             }
             else if(runs < runsToWin -1){
-                result = new Result(firstInning.team, team, runsToWin - runs - 1);
+                result = new MatchResult(firstInning.team, team, runsToWin - runs - 1);
             }
             else{
-                result = new Result();
+                result = new MatchResult();
             }
         }
         return result;
     }
 
-    public Result playInning() throws IOException {
+    public MatchResult playInning() throws IOException {
         if(type == Type.FIRST)
             return makeTarget();
         else
@@ -234,13 +246,15 @@ public class Inning  implements  Cloneable{
      Pair<Integer, Integer> getStrikeRate(int index) {
         return strikeRate[index];
     }
-
-     Inning getFirstInning() {
-        return firstInning;
+     //deep copy in package specific getters not worth.
+     Inning getFirstInning() throws CloneNotSupportedException {
+        return (Inning) firstInning.clone();
     }
 
-     Team getTeam() {
-        return team;
+     Team getTeam() throws CloneNotSupportedException {
+        if(team!= null)
+            return (Team) team.clone();
+        return null;
     }
 
     boolean isOutPlayer(int index){

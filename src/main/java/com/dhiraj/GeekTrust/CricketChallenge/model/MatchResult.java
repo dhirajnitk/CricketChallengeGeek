@@ -1,6 +1,6 @@
-package com.dhiraj.GeekTrust.model;
+package com.dhiraj.GeekTrust.CricketChallenge.model;
 
-public class Result {
+public class MatchResult {
 
     private Team winningTeam;
     private Team losingTeam;
@@ -9,20 +9,20 @@ public class Result {
     private int lossRuns = -1;
     private boolean isDraw;
 
-    public Result(Team winningTeam, Team losingTeam, int wicketRemaining, int ballRemaining){
+    public MatchResult(Team winningTeam, Team losingTeam, int wicketRemaining, int ballRemaining){
         this.winningTeam = winningTeam;
         this.losingTeam = losingTeam;
         this.wicketRemaining = wicketRemaining;
         this.ballRemaining = ballRemaining;
     }
 
-    public Result(Team winningTeam, Team losingTeam, int lossRuns){
+    public MatchResult(Team winningTeam, Team losingTeam, int lossRuns){
           this.winningTeam = winningTeam;
           this.losingTeam = losingTeam;
           this.lossRuns = lossRuns;
     }
 
-    public Result(){
+    public MatchResult(){
         this.isDraw = true;
     }
 

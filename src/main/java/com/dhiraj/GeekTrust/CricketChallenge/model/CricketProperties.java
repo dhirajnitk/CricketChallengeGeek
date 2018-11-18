@@ -1,4 +1,4 @@
-package com.dhiraj.GeekTrust.model;
+package com.dhiraj.GeekTrust.CricketChallenge.model;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

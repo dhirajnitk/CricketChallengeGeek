@@ -1,4 +1,4 @@
-package com.dhiraj.GeekTrust.model;
+package com.dhiraj.GeekTrust.CricketChallenge.model;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -12,11 +12,11 @@ public class ScoreCard {
     private String scoreFileName;
     private FileWriter scoreFile;
     private PrintWriter scorePrint;
-    private Result result;
+    private MatchResult result;
     private Inning secondInning;
     private CricketProperties cricketProperties;
 
-    public ScoreCard(Result result,Inning secondInning) throws IOException {
+    public ScoreCard(MatchResult result, Inning secondInning) throws IOException {
         this.result = result;
         this.secondInning = secondInning;
         this.cricketProperties = Commentary.getCricketProperties();
@@ -25,7 +25,7 @@ public class ScoreCard {
         scorePrint = new PrintWriter(scoreFile);
     }
 
-    private void commonWriteScoreCard(Inning inning){
+    private void commonWriteScoreCard(Inning inning) throws CloneNotSupportedException {
 
         Team team = inning.getTeam();
         for(int index = 0; index <team.getSize(); index++){
@@ -37,7 +37,7 @@ public class ScoreCard {
 
     }
 
-    private void publishScoreCard() throws IOException {
+    private void publishScoreCard() throws IOException, CloneNotSupportedException {
 
         if (result.isDraw()) {
             scorePrint.println(cricketProperties.getProperty("tieFormat"));
@@ -81,7 +81,7 @@ public class ScoreCard {
     }
 
 
-    public void printScoreCard() throws IOException {
+    public void printScoreCard() throws IOException, CloneNotSupportedException {
         publishScoreCard();
         List<String> lines = Files.readAllLines(Paths.get(scoreFileName));
         lines.forEach(System.out::println);
