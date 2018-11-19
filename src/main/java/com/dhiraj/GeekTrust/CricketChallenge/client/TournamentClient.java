@@ -20,19 +20,11 @@ public class TournamentClient {
     private final Map<Teams, TeamProbabilityMatrix> teamsDetails  = new HashMap<>();
     private PlayerProbabilityMatrix playerProbabilityMatrix;
 
-    public TournamentClient(Pair<Teams,TeamProbabilityMatrix> team1,  Pair<Teams,TeamProbabilityMatrix> team2){
-        teamsDetails.put(team1.getKey(), team1.getValue());
-        teamsDetails.put(team2.getKey(), team2.getValue());
+    public TournamentClient(Pair<Teams,TeamProbabilityMatrix> ... team){
         playerProbabilityMatrix = new PlayerProbabilityMatrix();
-    }
-
-    public TournamentClient(Pair<Teams,TeamProbabilityMatrix> team){
-        teamsDetails.put(team.getKey(), team.getValue());
-        playerProbabilityMatrix = new PlayerProbabilityMatrix();
-    }
-
-    public TournamentClient(){
-
+        for(int index = 0; index < team.length; index++) {
+            teamsDetails.put(team[index].getKey(), team[index].getValue());
+        }
     }
 
     private Pair<Teams,Teams> getToss(Random random){
@@ -70,7 +62,7 @@ public class TournamentClient {
         Team team1 = new Team(teams1.name(),teamsDetails.get(teams1).getNames());
         Team team2 = new Team(teams2.name(),teamsDetails.get(teams2).getNames());
         try {
-            cricketTournament.playMatch(team1, team2, playerProbabilityMatrix, 1);
+            cricketTournament.playMatch(team1, team2, 1, playerProbabilityMatrix);
         } catch (IOException | CloneNotSupportedException e) {
             logger.error(e.getMessage());
             return false;
@@ -88,7 +80,7 @@ public class TournamentClient {
         playerProbabilityMatrix.addProbabilityMap(teamDetailsEntry.getValue());
         Team team = new Team(teamDetailsEntry.getKey().name(),teamDetailsEntry.getValue().getNames());
         try {
-            cricketTournament.chaseInning(team, overs,playerProbabilityMatrix, runsToWin);
+            cricketTournament.chaseInning(team, overs, playerProbabilityMatrix, runsToWin);
         } catch (IOException| CloneNotSupportedException e ) {
             logger.error(e.getMessage());
             return false;

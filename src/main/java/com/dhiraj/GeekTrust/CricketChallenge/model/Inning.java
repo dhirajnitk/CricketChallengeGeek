@@ -122,11 +122,8 @@ public class Inning  implements  Cloneable{
     private  boolean playShot(String ballIndex){
         int playerIndex= currentPlayers.get(true);
         int score = (int)(random.nextFloat()*100);
-        int shotIndex = Arrays.binarySearch(playerProbabilityMatrix.getPlayerCumProb(team.getPlayerName(playerIndex)), score);
-        if(shotIndex< 0)
-            shotIndex = -1*(shotIndex +1);
+        int shotIndex = playerProbabilityMatrix.getPlayerScore(team.getPlayerName(playerIndex), score);
         return updateStatistics(playerIndex, shotIndex, ballIndex);
-
     }
 
     private  Pair<Boolean, Integer> playOver(int overIndex){

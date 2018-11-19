@@ -26,8 +26,11 @@ public class PlayerProbabilityMatrix {
         });
     }
 
-    public int [] getPlayerCumProb(String name){
-        return cumProbMatrix.get(name);
+    public int getPlayerScore(String name, int score){
+        int shotIndex = Arrays.binarySearch(cumProbMatrix.get(name), score);
+        if(shotIndex< 0)
+            shotIndex = -1*(shotIndex +1);
+        return shotIndex;
     }
 
 }

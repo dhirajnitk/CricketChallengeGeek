@@ -19,6 +19,7 @@ public final class TournamentClientTest {
     private final static List<String> weatherType = Arrays.asList("Clear","Cloudy");
     private final static List<String> dayType = Arrays.asList("Day", "Night");
     private final int count = 1;
+
     private boolean isTossCorrect(Teams teams, int weatherIndex, int dayIndex, String result){
         boolean isBat = result.contains("bats");
         boolean isBowl = result.contains("bowls");
@@ -74,8 +75,10 @@ public final class TournamentClientTest {
                 {5, 10, 25, 10, 25, 1, 14, 10},
                 {10, 15, 15, 10, 20,1, 19, 10}
         };
-        TournamentClient tournamentClient = new TournamentClient(new Pair<Teams, TeamProbabilityMatrix>(Teams.Lengaburu, new TeamProbabilityMatrix(lengaburuNames, lengaburuProbMatrix)),
-                new Pair<Teams,TeamProbabilityMatrix>(Teams.Enchai, new TeamProbabilityMatrix(enchaiNames, enchaiProbMatrix)));
+        TeamProbabilityMatrix teamProbabilityMatrix1 = new TeamProbabilityMatrix(lengaburuNames, lengaburuProbMatrix);
+        TeamProbabilityMatrix teamProbabilityMatrix2 = new TeamProbabilityMatrix(enchaiNames, enchaiProbMatrix);
+        TournamentClient tournamentClient = new TournamentClient(new Pair<Teams, TeamProbabilityMatrix>(Teams.Lengaburu, teamProbabilityMatrix1),
+                new Pair<Teams,TeamProbabilityMatrix>(Teams.Enchai, teamProbabilityMatrix2));
         for(int index = 0; index < count; index++)
             assertTrue(tournamentClient.playSuperOverMatch());
     }

@@ -19,7 +19,7 @@ public class CricketTournament {
 
     }
 
-    public void playMatch(Team team1, Team team2, PlayerProbabilityMatrix playerProbability, int overs) throws IOException, CloneNotSupportedException {
+    public void playMatch(Team team1, Team team2,  int overs, PlayerProbabilityMatrix playerProbability) throws IOException, CloneNotSupportedException {
         Inning inning1 = new Inning(team1, overs , playerProbability, Inning.Type.FIRST);
         inning1.playInning();
         Inning inning2 = new Inning(inning1, team2, overs, playerProbability);
