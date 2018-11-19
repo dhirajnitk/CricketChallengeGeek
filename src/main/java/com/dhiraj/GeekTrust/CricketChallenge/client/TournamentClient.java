@@ -13,14 +13,16 @@ import java.util.*;
 
 public class TournamentClient {
 
-    private static final Logger logger = LoggerFactory.getLogger(TournamentClient.class);
-    private CricketTournament  cricketTournament = new CricketTournament();
+    private final static Logger logger = LoggerFactory.getLogger(TournamentClient.class);
     private final static List<String> weatherType = Arrays.asList("Clear","Cloudy");
     private final static List<String> dayType = Arrays.asList("Day", "Night");
+
+    private final CricketTournament  cricketTournament;
     private final Map<Teams, TeamProbabilityMatrix> teamsDetails  = new HashMap<>();
-    private PlayerProbabilityMatrix playerProbabilityMatrix;
+    private final PlayerProbabilityMatrix playerProbabilityMatrix;
 
     public TournamentClient(Pair<Teams,TeamProbabilityMatrix> ... teamMatrix){
+        cricketTournament = new CricketTournament();
         playerProbabilityMatrix = new PlayerProbabilityMatrix();
         for(int index = 0; index < teamMatrix.length; index++) {
             teamsDetails.put(teamMatrix[index].getKey(), teamMatrix[index].getValue());
