@@ -18,11 +18,12 @@ public class TournamentClient {
     private final static List<String> dayType = Arrays.asList("Day", "Night");
 
     private final CricketTournament  cricketTournament;
-    private final Map<Teams, TeamProbabilityMatrix> teamsDetails  = new HashMap<>();
+    private final Map<Teams, TeamProbabilityMatrix> teamsDetails;
     private final PlayerProbabilityMatrix playerProbabilityMatrix;
 
     public TournamentClient(Pair<Teams,TeamProbabilityMatrix> ... teamMatrix){
         cricketTournament = new CricketTournament();
+        teamsDetails  = new HashMap<>();
         playerProbabilityMatrix = new PlayerProbabilityMatrix();
         for(int index = 0; index < teamMatrix.length; index++) {
             teamsDetails.put(teamMatrix[index].getKey(), teamMatrix[index].getValue());
@@ -44,7 +45,6 @@ public class TournamentClient {
             return String.format(batFormat, tossResult.getKey().name());
         return String.format(bowlFormat, tossResult.getKey().name());
     }
-
 
     public  boolean  playSuperOverMatch(){
         Pair<Teams,Teams> tossResult = getToss(new Random());
