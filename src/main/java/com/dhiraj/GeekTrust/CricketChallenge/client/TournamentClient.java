@@ -20,10 +20,10 @@ public class TournamentClient {
     private final Map<Teams, TeamProbabilityMatrix> teamsDetails  = new HashMap<>();
     private PlayerProbabilityMatrix playerProbabilityMatrix;
 
-    public TournamentClient(Pair<Teams,TeamProbabilityMatrix> ... team){
+    public TournamentClient(Pair<Teams,TeamProbabilityMatrix> ... teamMatrix){
         playerProbabilityMatrix = new PlayerProbabilityMatrix();
-        for(int index = 0; index < team.length; index++) {
-            teamsDetails.put(team[index].getKey(), team[index].getValue());
+        for(int index = 0; index < teamMatrix.length; index++) {
+            teamsDetails.put(teamMatrix[index].getKey(), teamMatrix[index].getValue());
         }
     }
 
