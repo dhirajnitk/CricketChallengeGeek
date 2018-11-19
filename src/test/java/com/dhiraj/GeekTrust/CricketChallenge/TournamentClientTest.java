@@ -1,5 +1,6 @@
 package com.dhiraj.GeekTrust.CricketChallenge;
 
+import com.dhiraj.GeekTrust.CricketChallenge.model.TeamProbabilityMatrix;
 import com.dhiraj.GeekTrust.CricketChallenge.model.Teams;
 import com.dhiraj.GeekTrust.CricketChallenge.client.TournamentClient;
 import javafx.util.Pair;
@@ -73,8 +74,8 @@ public final class TournamentClientTest {
                 {5, 10, 25, 10, 25, 1, 14, 10},
                 {10, 15, 15, 10, 20,1, 19, 10}
         };
-        TournamentClient tournamentClient = new TournamentClient(new Pair<Teams, String[]>(Teams.Lengaburu,lengaburuNames), lengaburuProbMatrix, new Pair<Teams, String[]>
-                (Teams.Enchai, enchaiNames), enchaiProbMatrix);
+        TournamentClient tournamentClient = new TournamentClient(new Pair<Teams, TeamProbabilityMatrix>(Teams.Lengaburu, new TeamProbabilityMatrix(lengaburuNames, lengaburuProbMatrix)),
+                new Pair<Teams,TeamProbabilityMatrix>(Teams.Enchai, new TeamProbabilityMatrix(enchaiNames, enchaiProbMatrix)));
         for(int index = 0; index < count; index++)
             assertTrue(tournamentClient.playSuperOverMatch());
     }
@@ -89,7 +90,7 @@ public final class TournamentClientTest {
                 {20, 30, 15, 5, 5, 1, 4, 20},
                 {30, 25, 5, 0, 5, 1, 4, 30}
         };
-        TournamentClient tournamentClient = new TournamentClient(new Pair<Teams, String[]>(Teams.Lengaburu,lengaburuNames), lengaburuProbMatrix);
+        TournamentClient tournamentClient = new TournamentClient(new Pair<Teams, TeamProbabilityMatrix>(Teams.Lengaburu, new TeamProbabilityMatrix(lengaburuNames, lengaburuProbMatrix)));
         for(int index = 0; index < count; index++)
             assertTrue(tournamentClient.chaseMatch(4,40));
     }

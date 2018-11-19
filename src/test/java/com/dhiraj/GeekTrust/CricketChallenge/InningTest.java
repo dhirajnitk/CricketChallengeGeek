@@ -24,14 +24,14 @@ public class InningTest {
 
     public InningTest(){
         playerProbabilityMatrix = new PlayerProbabilityMatrix();
-        playerProbabilityMatrix.addProbabilityMap(lengaburuNames, lengaburuProbMatrix);
-        playerProbabilityMatrix.addProbabilityMap(enchaiNames, enchaiProbMatrix);
+        playerProbabilityMatrix.addProbabilityMap(new TeamProbabilityMatrix(lengaburuNames, lengaburuProbMatrix));
+        playerProbabilityMatrix.addProbabilityMap(new TeamProbabilityMatrix(enchaiNames, enchaiProbMatrix));
     }
 
     @Test
     public void testFirstInning() throws IOException {
 
-        Inning inning1 = new Inning(new Team(Teams.Lengaburu.name(),lengaburuNames), 1 , playerProbabilityMatrix, Inning.Type.FIRST);
+        Inning inning1 = new Inning(new Team(Teams.Lengaburu.name(), lengaburuNames), 1 , playerProbabilityMatrix, Inning.Type.FIRST);
         inning1.playInning();
         assertTrue(inning1.getRunsToWin() == 5);
     }

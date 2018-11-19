@@ -2,6 +2,7 @@ package com.dhiraj.GeekTrust.CricketChallenge.client;
 
 import com.dhiraj.GeekTrust.CricketChallenge.model.PlayerProbabilityMatrix;
 import com.dhiraj.GeekTrust.CricketChallenge.model.Team;
+import com.dhiraj.GeekTrust.CricketChallenge.model.TeamProbabilityMatrix;
 import com.dhiraj.GeekTrust.CricketChallenge.model.Teams;
 import com.dhiraj.GeekTrust.CricketChallenge.service.CricketTournament;
 import javafx.util.Pair;
@@ -16,17 +17,17 @@ public class TournamentClient {
     private CricketTournament  cricketTournament = new CricketTournament();
     private final static List<String> weatherType = Arrays.asList("Clear","Cloudy");
     private final static List<String> dayType = Arrays.asList("Day", "Night");
-    private final Map<Teams, Pair<String[],int[][]>> teamsDetails  = new HashMap<>();
+    private final Map<Teams, TeamProbabilityMatrix> teamsDetails  = new HashMap<>();
     private PlayerProbabilityMatrix playerProbabilityMatrix;
 
-    public TournamentClient(Pair<Teams,String []> team1,int [][] prbMatrix1,  Pair<Teams,String []> team2, int [][] prbMatrix2){
-        teamsDetails.put(team1.getKey(), new Pair<String[],int [][] >(team1.getValue(), prbMatrix1));
-        teamsDetails.put(team2.getKey(), new Pair<String[],int [][] >(team2.getValue(), prbMatrix2));
+    public TournamentClient(Pair<Teams,TeamProbabilityMatrix> team1,  Pair<Teams,TeamProbabilityMatrix> team2){
+        teamsDetails.put(team1.getKey(), team1.getValue());
+        teamsDetails.put(team2.getKey(), team2.getValue());
         playerProbabilityMatrix = new PlayerProbabilityMatrix();
     }
 
-    public TournamentClient(Pair<Teams,String []> team,int [][] prbMatrix){
-        teamsDetails.put(team.getKey(), new Pair<String[],int [][]>(team.getValue(), prbMatrix));
+    public TournamentClient(Pair<Teams,TeamProbabilityMatrix> team){
+        teamsDetails.put(team.getKey(), team.getValue());
         playerProbabilityMatrix = new PlayerProbabilityMatrix();
     }
 
@@ -64,10 +65,10 @@ public class TournamentClient {
             teams1 = tossResult.getValue();
             teams2 = tossResult.getKey();
         }
-        playerProbabilityMatrix.addProbabilityMap(teamsDetails.get(teams1).getKey(), teamsDetails.get(teams1).getValue());
-        playerProbabilityMatrix.addProbabilityMap(teamsDetails.get(teams2).getKey(), teamsDetails.get(teams2).getValue());
-        Team team1 = new Team(teams1.name(),teamsDetails.get(teams1).getKey());
-        Team team2 = new Team(teams2.name(),teamsDetails.get(teams2).getKey());
+        playerProbabilityMatrix.addProbabilityMap(teamsDetails.get(teams1));
+        playerProbabilityMatrix.addProbabilityMap(teamsDetails.get(teams2));
+        Team team1 = new Team(teams1.name(),teamsDetails.get(teams1).getNames());
+        Team team2 = new Team(teams2.name(),teamsDetails.get(teams2).getNames());
         try {
             cricketTournament.playMatch(team1, team2, playerProbabilityMatrix, 1);
         } catch (IOException | CloneNotSupportedException e) {
@@ -79,13 +80,13 @@ public class TournamentClient {
     }
 
     public  boolean chaseMatch(int overs, int runsToWin)  {
-        Set<Map.Entry<Teams, Pair<String[],int[][]>>> teamDetailsSet = teamsDetails.entrySet();
-        Optional<Map.Entry<Teams, Pair<String[],int[][]>>>teamDetailsOpt = teamDetailsSet.stream().findFirst();
+        Set<Map.Entry<Teams, TeamProbabilityMatrix>> teamDetailsSet = teamsDetails.entrySet();
+        Optional<Map.Entry<Teams, TeamProbabilityMatrix>>teamDetailsOpt = teamDetailsSet.stream().findFirst();
         if(!teamDetailsOpt.isPresent())
             return false;
-        Map.Entry<Teams, Pair<String[],int[][]>> teamDetailsEntry = teamDetailsOpt.get();
-        playerProbabilityMatrix.addProbabilityMap(teamDetailsEntry.getValue().getKey(), teamDetailsEntry.getValue().getValue());
-        Team team = new Team(teamDetailsEntry.getKey().name(),teamDetailsEntry.getValue().getKey());
+        Map.Entry<Teams, TeamProbabilityMatrix> teamDetailsEntry = teamDetailsOpt.get();
+        playerProbabilityMatrix.addProbabilityMap(teamDetailsEntry.getValue());
+        Team team = new Team(teamDetailsEntry.getKey().name(),teamDetailsEntry.getValue().getNames());
         try {
             cricketTournament.chaseInning(team, overs,playerProbabilityMatrix, runsToWin);
         } catch (IOException| CloneNotSupportedException e ) {
