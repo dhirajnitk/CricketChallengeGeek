@@ -1,6 +1,5 @@
 package com.dhiraj.GeekTrust.CricketChallenge;
 
-import com.dhiraj.GeekTrust.CricketChallenge.model.TeamProbabilityMatrix;
 import com.dhiraj.GeekTrust.CricketChallenge.model.Teams;
 import com.dhiraj.GeekTrust.CricketChallenge.client.TournamentClient;
 import javafx.util.Pair;
@@ -75,10 +74,11 @@ public final class TournamentClientTest {
                 {5, 10, 25, 10, 25, 1, 14, 10},
                 {10, 15, 15, 10, 20,1, 19, 10}
         };
-        TeamProbabilityMatrix teamProbabilityMatrix1 = new TeamProbabilityMatrix(lengaburuNames, lengaburuProbMatrix);
-        TeamProbabilityMatrix teamProbabilityMatrix2 = new TeamProbabilityMatrix(enchaiNames, enchaiProbMatrix);
-        TournamentClient tournamentClient = new TournamentClient(new Pair<Teams, TeamProbabilityMatrix>(Teams.Lengaburu, teamProbabilityMatrix1),
-                new Pair<Teams,TeamProbabilityMatrix>(Teams.Enchai, teamProbabilityMatrix2));
+
+        Pair<List<String>, int [][]> team1 = new Pair<List<String>,int[][]>(Arrays.asList(lengaburuNames), lengaburuProbMatrix);
+        Pair<List<String>, int [][]> team2 = new Pair<List<String>,int[][]>(Arrays.asList(enchaiNames), enchaiProbMatrix);
+        TournamentClient tournamentClient = new TournamentClient(new Pair<>(Teams.Lengaburu,team1), new Pair<>(Teams.Enchai, team2));
+
         for(int index = 0; index < count; index++)
             assertTrue(tournamentClient.playSuperOverMatch());
     }
@@ -93,7 +93,8 @@ public final class TournamentClientTest {
                 {20, 30, 15, 5, 5, 1, 4, 20},
                 {30, 25, 5, 0, 5, 1, 4, 30}
         };
-        TournamentClient tournamentClient = new TournamentClient(new Pair<Teams, TeamProbabilityMatrix>(Teams.Lengaburu, new TeamProbabilityMatrix(lengaburuNames, lengaburuProbMatrix)));
+        Pair<List<String>, int [][]> team = new Pair<List<String>,int[][]>(Arrays.asList(lengaburuNames), lengaburuProbMatrix);
+        TournamentClient tournamentClient = new TournamentClient(new Pair<>(Teams.Lengaburu,team));
         for(int index = 0; index < count; index++)
             assertTrue(tournamentClient.chaseMatch(4,40));
     }

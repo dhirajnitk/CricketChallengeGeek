@@ -7,6 +7,8 @@ import org.junit.runners.MethodSorters;
 import static junit.framework.TestCase.assertTrue;
 
 import java.io.IOException;
+import java.util.Arrays;
+
 @FixMethodOrder(MethodSorters.DEFAULT)
 public class InningTest {
 
@@ -24,8 +26,8 @@ public class InningTest {
 
     public InningTest(){
         playerProbabilityMatrix = new PlayerProbabilityMatrix();
-        playerProbabilityMatrix.addProbabilityMap(new TeamProbabilityMatrix(lengaburuNames, lengaburuProbMatrix));
-        playerProbabilityMatrix.addProbabilityMap(new TeamProbabilityMatrix(enchaiNames, enchaiProbMatrix));
+        playerProbabilityMatrix.addProbabilityMap(Arrays.asList(lengaburuNames), lengaburuProbMatrix);
+        playerProbabilityMatrix.addProbabilityMap(Arrays.asList(enchaiNames), enchaiProbMatrix);
     }
 
     @Test

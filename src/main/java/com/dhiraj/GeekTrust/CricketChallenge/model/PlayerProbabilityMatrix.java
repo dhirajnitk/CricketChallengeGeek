@@ -14,9 +14,8 @@ public class PlayerProbabilityMatrix {
     public PlayerProbabilityMatrix(){
         cumProbMatrix = new HashMap<>();
     }
-
-    public void addProbabilityMap(TeamProbabilityMatrix teamProbabilityMatrix ){
-        setCumSums(teamProbabilityMatrix.getNames(), teamProbabilityMatrix.getPrbMatrix() );
+    public void addProbabilityMap(List<String> names, int [][] prbMatrix){
+        setCumSums(names, prbMatrix);
     }
 
     private void setCumSums(List<String> names, int [][] probMatrix){
@@ -26,8 +25,8 @@ public class PlayerProbabilityMatrix {
         });
     }
 
-    public int getPlayerScore(String name, int score){
-        int shotIndex = Arrays.binarySearch(cumProbMatrix.get(name), score);
+    public int getPlayerScore(String name, int percentile){
+        int shotIndex = Arrays.binarySearch(cumProbMatrix.get(name), percentile);
         if(shotIndex< 0)
             shotIndex = -1*(shotIndex +1);
         return shotIndex;
